@@ -1,0 +1,40 @@
+/* Hero Text Animation - Replaces SVG with HTML text */
+
+.c-hero-home_title {
+  display: block !important;
+  width: 100% !important;
+}
+
+.c-hero-home_text-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.5em !important;
+  width: 100% !important;
+  padding: 0 2rem !important;
+  box-sizing: border-box !important;
+  margin-top: 1.5rem !important;
+}
+
+.c-hero-home_word {
+  display: inline-block !important;
+  transform: translateY(100%) !important;
+  transition: none !important;
+  font-size: clamp(2rem, 20vw, 60vw) !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+html.is-ready .c-hero-home_word {
+  transform: translate(0) !important;
+  transition: transform var(--transition-duration-slowest) var(--ease-slow-out) !important;
+  transition-delay: calc(var(--index) * 150ms) !important;
+}
+
+/* Hide the SVG if using text instead */
+.c-hero-home_svg {
+  display: none !important;
+}
