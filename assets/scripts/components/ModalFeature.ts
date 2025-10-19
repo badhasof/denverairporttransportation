@@ -12,9 +12,15 @@ export class ModalFeature extends Modal {
 
     onOpen(args: any): void {
         const $target = args.target as HTMLElement;
-        const data = $target.dataset.details ? JSON.parse($target.dataset.details) : {};
+        const data = $target.dataset.details;
         if (!data) return;
-        this.$inner.innerHTML = data;
+
+        // Decode HTML entities
+        const textarea = document.createElement('textarea');
+        textarea.innerHTML = data;
+        const decodedData = textarea.value;
+
+        this.$inner.innerHTML = decodedData;
     }
 
     onClose(): void {}
